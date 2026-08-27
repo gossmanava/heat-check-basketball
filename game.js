@@ -47,27 +47,27 @@ function physics(dt){if(!ball.flying)return;ball.trail.push({x:ball.x,y:ball.y,a
 function update(dt){if(state==='playing'){timeLeft-=dt;if(timeLeft<=0){timeLeft=0;updateHUD();endGame();return}timerCarry+=dt;if(timerCarry>.12){updateHUD();timerCarry=0}const readyBall=ball;projectiles.forEach(shot=>{ball=shot;physics(dt)});ball=readyBall;projectiles=projectiles.filter(shot=>!shot.expired)}particles.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=350*dt;p.life-=dt*1.3});particles=particles.filter(p=>p.life>0);fireworks.forEach(p=>{p.px=p.x;p.py=p.y;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.985;p.vy=p.vy*.985+115*dt;p.life-=dt*.72});fireworks=fireworks.filter(p=>p.life>0);[ball,...projectiles].forEach(b=>b?.trail.forEach(t=>t.a-=dt*3));ripples.forEach(r=>{r.r+=100*dt;r.a-=dt*1.5});ripples=ripples.filter(r=>r.a>0)}
 function court(){const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#111936');g.addColorStop(.55,'#182040');g.addColorStop(1,'#101529');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(255,255,255,.055)';ctx.lineWidth=2;for(let x=-H;x<W+H;x+=72){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x+H,H);ctx.stroke()}ctx.fillStyle='rgba(255,255,255,.025)';ctx.beginPath();ctx.arc(W*.5,H*1.1,H*.45,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(255,90,31,.18)';ctx.lineWidth=3;ctx.beginPath();ctx.arc(W*.5,H*1.1,H*.45,Math.PI,Math.PI*2);ctx.stroke()}
 function drawBallCart(){
-  const cartW=W<500?94:128,cartH=W<500?70:86,left=Math.max(12,ball.x-cartW-62),top=ball.y+3;
-  // Open, sloped wire basket used by real gyms.
-  const x1=left+10,x2=left+cartW-8,bottom=top+cartH-22;
-  ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#c9d0db';ctx.lineWidth=5;
-  ctx.beginPath();ctx.moveTo(x1,top+12);ctx.lineTo(x2,top);ctx.lineTo(x2-10,bottom);ctx.lineTo(x1+11,bottom);ctx.closePath();ctx.stroke();
-  // Tubular push handle.
-  ctx.beginPath();ctx.moveTo(x1+4,top+15);ctx.lineTo(left-4,top-15);ctx.lineTo(left+17,top-19);ctx.stroke();
-  // Wire mesh sides.
-  ctx.strokeStyle='rgba(194,203,216,.7)';ctx.lineWidth=1.5;
-  for(let i=1;i<5;i++){const t=i/5;ctx.beginPath();ctx.moveTo(x1+(x2-x1)*t,top+10*(1-t));ctx.lineTo(x1+11+(x2-x1-21)*t,bottom);ctx.stroke()}
-  for(let i=1;i<4;i++){const y=top+9+i*(bottom-top-5)/4;ctx.beginPath();ctx.moveTo(x1+4,y);ctx.lineTo(x2-5,y-5);ctx.stroke()}
-  // Basketballs sit down inside the open basket.
-  const balls=W<500?[[.28,.4],[.55,.34],[.76,.3],[.42,.68],[.68,.63]]:[[.18,.38],[.39,.32],[.6,.27],[.8,.22],[.28,.65],[.51,.59],[.73,.54]];
-  balls.forEach(([px,py])=>{const x=x1+10+(cartW-30)*px,y=top+8+(bottom-top-12)*py,r=W<500?10:12;ctx.fillStyle='#e96324';ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#4b231c';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.moveTo(x-r,y);ctx.lineTo(x+r,y);ctx.moveTo(x,y-r);ctx.lineTo(x,y+r);ctx.stroke()});
-  // Lower chassis and swivel casters.
-  ctx.strokeStyle='#aeb7c5';ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(x1+7,bottom+1);ctx.lineTo(x2-7,bottom+1);ctx.stroke();
-  ctx.fillStyle='#252d3e';ctx.strokeStyle='#dce1e9';ctx.lineWidth=3;
-  [x1+15,x2-15].forEach(x=>{ctx.beginPath();ctx.arc(x,bottom+14,8,0,Math.PI*2);ctx.fill();ctx.stroke()});
-  // Short return rail points from the cart toward the ready position.
-  ctx.strokeStyle='#c9d0db';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(x2,top+2);ctx.lineTo(ball.x-24,ball.y+15);ctx.stroke();
-  ctx.lineCap='butt';
+  const rackW=W<500?106:142,rackH=W<500?108:134,left=Math.max(10,ball.x-rackW-58),floor=ball.y+72,top=floor-rackH;
+  const railLeft=left+14,railRight=left+rackW-12;
+  ctx.lineCap='round';ctx.lineJoin='round';
+  // Professional courtside rack: two upright steel tubes and a wide non-tip base.
+  ctx.strokeStyle='#b8c1cf';ctx.lineWidth=7;
+  ctx.beginPath();ctx.moveTo(railLeft,top+4);ctx.lineTo(railLeft+3,floor-13);ctx.moveTo(railRight,top);ctx.lineTo(railRight-3,floor-13);ctx.stroke();
+  ctx.strokeStyle='#dce2ea';ctx.lineWidth=8;
+  ctx.beginPath();ctx.moveTo(left+2,floor-12);ctx.lineTo(left+rackW,floor-12);ctx.stroke();
+  // Three exposed, slightly angled rails—no basket or mesh enclosure.
+  const railYs=[top+23,top+61,top+99];
+  railYs.forEach((y,i)=>{if(y>floor-25)return;ctx.strokeStyle='#8f9aaa';ctx.lineWidth=9;ctx.beginPath();ctx.moveTo(railLeft,y+4);ctx.lineTo(railRight,y);ctx.stroke();ctx.strokeStyle='#e2e7ee';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(railLeft,y+1);ctx.lineTo(railRight,y-3);ctx.stroke()});
+  // Full-size balls rest individually on the open rails.
+  const r=W<500?12:14;
+  railYs.forEach((y,row)=>{if(y>floor-25)return;const count=W<500?3:4;for(let i=0;i<count;i++){const x=railLeft+10+i*(railRight-railLeft-20)/(count-1),cy=y-r+1-i*1.2;ctx.fillStyle='#e96525';ctx.beginPath();ctx.arc(x,cy,r,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#51241a';ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(x,cy,r,0,Math.PI*2);ctx.moveTo(x-r,cy);ctx.lineTo(x+r,cy);ctx.moveTo(x,cy-r);ctx.lineTo(x,cy+r);ctx.stroke()}});
+  // Small courtside equipment placard.
+  ctx.fillStyle='#11182b';ctx.strokeStyle='#f3f5f8';ctx.lineWidth=2;ctx.fillRect(left+rackW/2-24,top+72,48,22);ctx.strokeRect(left+rackW/2-24,top+72,48,22);
+  ctx.fillStyle='#ff6a25';ctx.font='800 9px Inter';ctx.textAlign='center';ctx.fillText('HEAT CHECK',left+rackW/2,top+86);ctx.textAlign='start';
+  // Four locking swivel casters beneath the broad base.
+  ctx.fillStyle='#20283a';ctx.strokeStyle='#dce2ea';ctx.lineWidth=3;
+  [left+13,left+rackW-13].forEach(x=>{ctx.strokeStyle='#929dac';ctx.beginPath();ctx.moveTo(x,floor-10);ctx.lineTo(x,floor-2);ctx.stroke();ctx.fillStyle='#20283a';ctx.strokeStyle='#dce2ea';ctx.beginPath();ctx.arc(x,floor+4,8,0,Math.PI*2);ctx.fill();ctx.stroke()});
+  ctx.lineCap='butt';ctx.lineJoin='miter';
 }
 function drawHoop(){
   const h=hoop(),boardX=h.x+h.rimW/2+9,boardTop=h.y-(W<500?112:142),boardBottom=h.y-5;

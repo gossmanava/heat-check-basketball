@@ -30,6 +30,7 @@ Build a polished browser game for an entrepreneurial finance class in which the 
 - Added a one-time in-game personal-record celebration that triggers the instant the saved score is surpassed, featuring five timed multicolor firework bursts, glowing trails, sound, and an animated “NEW RECORD!” announcement.
 - Expanded the sound design with distinct procedural shot whooshes, hardwood bounces, metallic rim clangs, backboard thuds, net swishes, and layered crowd reactions for streaks and records.
 - Replaced the box-shaped ball holder with a realistic sloped open-wire gym cart featuring tubular framing, mesh panels, push handle, lower chassis, swivel casters, return rail, and basketballs resting inside the basket.
+- Replaced the basket-style cart after reviewing real courtside equipment references. The new professional rack uses three exposed angled steel rails, individual ball positions, twin uprights, a broad non-tip base, equipment placard, and locking casters—with no basket, mesh enclosure, or shopping-cart handle.
 
 ## Scoring rules
 
