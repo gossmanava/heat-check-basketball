@@ -32,6 +32,7 @@ Build a polished browser game for an entrepreneurial finance class in which the 
 - Replaced the box-shaped ball holder with a realistic sloped open-wire gym cart featuring tubular framing, mesh panels, push handle, lower chassis, swivel casters, return rail, and basketballs resting inside the basket.
 - Replaced the basket-style cart after reviewing real courtside equipment references. The new professional rack uses three exposed angled steel rails, individual ball positions, twin uprights, a broad non-tip base, equipment placard, and locking casters—with no basket, mesh enclosure, or shopping-cart handle.
 - Added a styled startup notice recommending a windowed browser tab because viewport width determines the ball-to-hoop distance and affects aiming consistency.
+- Corrected the notice timing so it opens when “Start Shootout” is selected; dismissing the notice now launches the game instead of the message appearing only on initial page load.
 
 ## Scoring rules
 
