@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070b18" />
+  <title>Heat Check — Basketball Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <button class="brand" id="homeButton" aria-label="Return to menu">
+        <span class="brand-ball" aria-hidden="true">●</span>
+        <span>HEAT<br><b>CHECK</b></span>
+      </button>
+      <div class="record-pill"><span>PERSONAL BEST</span><strong id="recordDisplay">—</strong></div>
+      <button class="icon-button" id="soundButton" aria-label="Toggle sound">♪</button>
+    </header>
+
+    <section class="game-stage" id="gameStage" aria-label="Basketball court">
+      <canvas id="gameCanvas"></canvas>
+
+      <div class="hud hidden" id="hud">
+        <div class="hud-block"><span>SCORE</span><strong id="scoreDisplay">0</strong></div>
+        <div class="clock" id="clockDisplay">00:30</div>
+        <div class="hud-block right"><span>STREAK</span><strong id="streakDisplay">0×</strong></div>
+      </div>
+
+      <div class="screen menu-screen" id="menuScreen">
+        <div class="eyebrow"><span></span> ARCADE SHOOTOUT <span></span></div>
+        <h1>HEAT<br><em>CHECK</em></h1>
+        <p class="tagline">Find your range. Build the streak. Catch fire.</p>
+        <div class="mode-label">CHOOSE YOUR CLOCK</div>
+        <div class="mode-grid">
+          <button class="mode-card selected" data-time="30">
+            <span class="mode-name">QUICK FIRE</span><strong>30</strong><small>SECONDS</small>
+            <i>Fast &amp; frantic</i>
+          </button>
+          <button class="mode-card" data-time="60">
+            <span class="mode-name">FULL COURT</span><strong>60</strong><small>SECONDS</small>
+            <i>Go for the record</i>
+          </button>
+        </div>
+        <button class="primary-button" id="startButton">START SHOOTOUT <span>→</span></button>
+        <div class="how-to"><b>HOW TO PLAY</b><span>Drag the ball to aim</span><span>Release to shoot</span><span>2 makes = on fire</span></div>
+      </div>
+
+      <div class="screen result-screen hidden" id="resultScreen">
+        <div class="eyebrow"><span></span> FINAL BUZZER <span></span></div>
+        <h2 id="resultTitle">NICE RUN!</h2>
+        <p id="resultSubtitle">You left it all on the court.</p>
+        <div class="result-score"><span>FINAL SCORE</span><strong id="finalScore">0</strong><i id="newRecord">NEW PERSONAL BEST</i></div>
+        <div class="result-stats">
+          <div><strong id="madeStat">0</strong><span>BUCKETS</span></div>
+          <div><strong id="bestStreakStat">0×</strong><span>BEST STREAK</span></div>
+          <div><strong id="accuracyStat">0%</strong><span>ACCURACY</span></div>
+        </div>
+        <button class="primary-button" id="replayButton">RUN IT BACK <span>↻</span></button>
+        <button class="text-button" id="menuButton">CHANGE GAME MODE</button>
+      </div>
+
+      <button class="pause-button hidden" id="pauseButton" aria-label="Pause game">Ⅱ</button>
+      <div class="pause-overlay hidden" id="pauseOverlay"><h2>TIMEOUT</h2><button class="primary-button" id="resumeButton">BACK IN THE GAME</button></div>
+      <div class="toast hidden" id="toast">ON FIRE!</div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
