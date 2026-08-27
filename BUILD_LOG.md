@@ -33,6 +33,8 @@ Build a polished browser game for an entrepreneurial finance class in which the 
 - Replaced the basket-style cart after reviewing real courtside equipment references. The new professional rack uses three exposed angled steel rails, individual ball positions, twin uprights, a broad non-tip base, equipment placard, and locking casters—with no basket, mesh enclosure, or shopping-cart handle.
 - Added a styled startup notice recommending a windowed browser tab because viewport width determines the ball-to-hoop distance and affects aiming consistency.
 - Corrected the notice timing so it opens when “Start Shootout” is selected; dismissing the notice now launches the game instead of the message appearing only on initial page load.
+- Added a wall-mounted “HEAT CHECK” neon sign that stays dim during play and flashes with a strong orange glow for 1.1 seconds after every made basket.
+- Removed the name and branded placard from the courtside basketball rack.
 
 ## Scoring rules
 
