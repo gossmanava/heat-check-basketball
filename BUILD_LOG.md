@@ -35,6 +35,7 @@ Build a polished browser game for an entrepreneurial finance class in which the 
 - Corrected the notice timing so it opens when “Start Shootout” is selected; dismissing the notice now launches the game instead of the message appearing only on initial page load.
 - Added a wall-mounted “HEAT CHECK” neon sign that stays dim during play and flashes with a strong orange glow for 1.1 seconds after every made basket.
 - Removed the name and branded placard from the courtside basketball rack.
+- Added a non-repeating rotating quote card after each made basket, featuring short motivational lines from NBA legends Magic Johnson, Kobe Bryant, LeBron James, and Bill Russell. The card is positioned away from the hoop and automatically fades after 2.8 seconds.
 
 ## Scoring rules
 
