@@ -19,6 +19,7 @@ function updateRecord(){ui.record.textContent=records[mode]||0;}
 function show(el,on=true){el.classList.toggle('hidden',!on)}
 document.querySelectorAll('.mode-card').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.mode-card').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');mode=+b.dataset.time;updateRecord();tone(330,.05)}));
 $('#startButton').onclick=startGame;$('#replayButton').onclick=startGame;$('#menuButton').onclick=showMenu;$('#homeButton').onclick=showMenu;
+$('#dismissNotice').onclick=()=>$('#windowNotice').classList.add('dismissed');
 $('#pauseButton').onclick=()=>pause(true);$('#resumeButton').onclick=()=>pause(false);$('#soundButton').onclick=()=>{sound=!sound;$('#soundButton').textContent=sound?'♪':'×';};
 function startGame(){state='playing';score=streak=bestStreak=made=shots=timerCarry=0;timeLeft=mode;recordBroken=false;projectiles=[];particles=[];fireworks=[];ripples=[];resetBall();show(ui.menu,false);show(ui.result,false);show(ui.hud);show(ui.pause);show(ui.pauseOverlay,false);updateHUD();lastTime=performance.now();tone(440,.08);}
 function showMenu(){state='menu';show(ui.menu);show(ui.result,false);show(ui.hud,false);show(ui.pause,false);show(ui.pauseOverlay,false);updateRecord();}

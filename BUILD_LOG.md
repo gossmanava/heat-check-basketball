@@ -31,6 +31,7 @@ Build a polished browser game for an entrepreneurial finance class in which the 
 - Expanded the sound design with distinct procedural shot whooshes, hardwood bounces, metallic rim clangs, backboard thuds, net swishes, and layered crowd reactions for streaks and records.
 - Replaced the box-shaped ball holder with a realistic sloped open-wire gym cart featuring tubular framing, mesh panels, push handle, lower chassis, swivel casters, return rail, and basketballs resting inside the basket.
 - Replaced the basket-style cart after reviewing real courtside equipment references. The new professional rack uses three exposed angled steel rails, individual ball positions, twin uprights, a broad non-tip base, equipment placard, and locking casters—with no basket, mesh enclosure, or shopping-cart handle.
+- Added a styled startup notice recommending a windowed browser tab because viewport width determines the ball-to-hoop distance and affects aiming consistency.
 
 ## Scoring rules
 

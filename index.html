@@ -66,6 +66,15 @@
       <button class="pause-button hidden" id="pauseButton" aria-label="Pause game">Ⅱ</button>
       <div class="pause-overlay hidden" id="pauseOverlay"><h2>TIMEOUT</h2><button class="primary-button" id="resumeButton">BACK IN THE GAME</button></div>
       <div class="toast hidden" id="toast">ON FIRE!</div>
+      <div class="window-notice" id="windowNotice" role="dialog" aria-modal="true" aria-labelledby="windowNoticeTitle">
+        <div class="window-notice-card">
+          <div class="notice-icon" aria-hidden="true">↔</div>
+          <span class="notice-label">QUICK HEADS-UP</span>
+          <h2 id="windowNoticeTitle">PLAY WINDOWED</h2>
+          <p>Heat Check works best in a windowed browser tab. The court size controls the distance between the ball and hoop, giving you a better angle and more consistent shots.</p>
+          <button class="primary-button" id="dismissNotice">GOT IT — LET'S PLAY</button>
+        </div>
+      </div>
     </section>
   </main>
   <script src="game.js"></script>
