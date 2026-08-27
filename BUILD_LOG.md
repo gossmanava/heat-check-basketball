@@ -36,6 +36,7 @@ Build a polished browser game for an entrepreneurial finance class in which the 
 - Added a wall-mounted “HEAT CHECK” neon sign that stays dim during play and flashes with a strong orange glow for 1.1 seconds after every made basket.
 - Removed the name and branded placard from the courtside basketball rack.
 - Added a non-repeating rotating quote card after each made basket, featuring short motivational lines from NBA legends Magic Johnson, Kobe Bryant, LeBron James, and Bill Russell. The card is positioned away from the hoop and automatically fades after 2.8 seconds.
+- Repositioned the legend quote card responsively beneath the hoop so it is readable at the exact moment the ball drops, while clamping its position inside the visible court and leaving the rim unobstructed.
 
 ## Scoring rules
 
